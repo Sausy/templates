@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -g -g  -rdynamic CMakeFiles/rpi_programm.dir/src/main.o  -o rpi_programm -lwiringPi 

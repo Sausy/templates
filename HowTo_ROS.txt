@@ -1,0 +1,13 @@
+in ~/.bashrc
+
+export ROS_IP=$(hostname -I|head -n1 | awk '{print $1;'})
+#export ROS_MASTER_URI=http://$ROS_IP:11311
+export ROS_MASTER_URI=http://192.168.0.105:11311
+#export ROBOY_CATKIN_PATH=/home/sausy/Projects/catkin_ws/
+
+
+#COULD also be putten into bashrc 
+source /opt/ros/melodic/setup.bash
+sourece <Project Path>/devel/setup.bash
+
+

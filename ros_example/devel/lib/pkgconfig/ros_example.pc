@@ -1,0 +1,8 @@
+prefix=/home/sausy/Projects/templates/ros_example/devel
+
+Name: ros_example
+Description: Description of ros_example
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/sausy/Projects/templates/ros_example/devel/lib 
+Requires: message_runtime

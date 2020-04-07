@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/sausy/Projects/templates/ros_example/install/setup.sh

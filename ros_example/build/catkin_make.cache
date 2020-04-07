@@ -1,0 +1,2 @@
+project_mainfolder
+-DCATKIN_DEVEL_PREFIX=/home/sausy/Projects/templates/ros_example/devel -DCMAKE_INSTALL_PREFIX=/home/sausy/Projects/templates/ros_example/install -G Unix Makefiles
