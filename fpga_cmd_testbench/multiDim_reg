@@ -1,0 +1,33 @@
+#! /usr/local/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x55e93a880e80 .scope module, "reg_test" "reg_test" 2 1;
+ .timescale 0 0;
+v0x55e93a881000 .array "array1", 2 0, 7 0;
+    .scope S_0x55e93a880e80;
+T_0 ;
+    %pushi/vec4 51, 0, 8;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4a v0x55e93a881000, 4, 0;
+    %vpi_call 2 13 "$display", "init val = {{8'hff},{8'h11}};" {0 0 0};
+    %vpi_call 2 14 "$display", "reg [7:0] array1 [0:2]" {0 0 0};
+    %vpi_call 2 15 "$display", "reg [7:0] array2 [2:0]" {0 0 0};
+    %vpi_call 2 16 "$display", "reg [0:7] array3 [0:2]" {0 0 0};
+    %vpi_call 2 17 "$display", "reg [0:7] array4 [2:0]" {0 0 0};
+    %vpi_call 2 19 "$display", &A<v0x55e93a881000, 0> {0 0 0};
+    %vpi_call 2 20 "$display", &A<v0x55e93a881000, 1> {0 0 0};
+    %vpi_call 2 21 "$display", &A<v0x55e93a881000, 2> {0 0 0};
+    %vpi_call 2 25 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "multiDim_reg.v";

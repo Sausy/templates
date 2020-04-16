@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sausy/Projects/templates/threats/ClassWithThreads/main.cpp
+stdlib.h
+-
+iostream
+-
+pb_encode.h
+-
+pb_decode.h
+-
+string
+-
+vector
+-
+atomic
+-
+sys/types.h
+-
+unistd.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+netdb.h
+-
+memory.h
+-
+ifaddrs.h
+-
+net/if.h
+-
+errno.h
+-
+testClass.hpp
+-
+

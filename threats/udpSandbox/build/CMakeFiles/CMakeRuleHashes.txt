@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+f764479f5f3b806ef97cdda33fb2b7a4 lighthouse.pb.c
+3236a909df9225b5a33767e94b2737a1 nanopb/generator/nanopb_generator.py
+fc09c4ddfe921e4bf6a03ee220e61e7a nanopb/generator/proto/nanopb_pb2.py

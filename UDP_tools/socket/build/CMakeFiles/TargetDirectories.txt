@@ -1,0 +1,3 @@
+/home/sausy/Projects/C_Cpp_sandbox/socket/build/CMakeFiles/rebuild_cache.dir
+/home/sausy/Projects/C_Cpp_sandbox/socket/build/CMakeFiles/socket.dir
+/home/sausy/Projects/C_Cpp_sandbox/socket/build/CMakeFiles/edit_cache.dir

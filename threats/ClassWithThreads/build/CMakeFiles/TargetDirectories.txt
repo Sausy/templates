@@ -1,0 +1,3 @@
+/home/sausy/Projects/templates/threats/ClassWithThreads/build/CMakeFiles/rebuild_cache.dir
+/home/sausy/Projects/templates/threats/ClassWithThreads/build/CMakeFiles/socket.dir
+/home/sausy/Projects/templates/threats/ClassWithThreads/build/CMakeFiles/edit_cache.dir

@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sausy/Projects/C_Cpp_sandbox/socket/src/main.cpp
+stdlib.h
+-
+iostream
+-
+sys/types.h
+-
+unistd.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+netdb.h
+-
+memory.h
+-
+ifaddrs.h
+-
+net/if.h
+-
+errno.h
+-
+udpEsp32Interface.hpp
+-
+

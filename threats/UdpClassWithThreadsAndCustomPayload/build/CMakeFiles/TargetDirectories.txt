@@ -1,0 +1,3 @@
+/home/sausy/Projects/templates/threats/UdpClassWithThreadsAndCustomPayload/build/CMakeFiles/rebuild_cache.dir
+/home/sausy/Projects/templates/threats/UdpClassWithThreadsAndCustomPayload/build/CMakeFiles/socket.dir
+/home/sausy/Projects/templates/threats/UdpClassWithThreadsAndCustomPayload/build/CMakeFiles/edit_cache.dir

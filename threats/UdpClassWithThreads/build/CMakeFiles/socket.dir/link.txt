@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -g  -rdynamic CMakeFiles/socket.dir/src/udpInterface.cpp.o CMakeFiles/socket.dir/main.cpp.o  -o socket -lpthread -lrt -lncurses -pthread 

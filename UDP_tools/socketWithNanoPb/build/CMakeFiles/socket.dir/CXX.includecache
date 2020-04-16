@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sausy/Projects/C_Cpp_sandbox/socketWithNanoPb/src/udpEsp32Interface.cpp
+udpEsp32Interface.hpp
+-
+pb_encode.h
+-
+pb_decode.h
+-
+lighthouse.pb.h
+/home/sausy/Projects/C_Cpp_sandbox/socketWithNanoPb/src/lighthouse.pb.h
+protoLighthouse.h
+/home/sausy/Projects/C_Cpp_sandbox/socketWithNanoPb/src/protoLighthouse.h
+
+lighthouse.pb.h
+pb.h
+-
+
