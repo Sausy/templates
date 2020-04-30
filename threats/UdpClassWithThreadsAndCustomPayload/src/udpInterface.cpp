@@ -96,6 +96,8 @@ int udpInterface::initServerSocket(const char* port){
   return 0;
 }
 
+
+
 void udpInterface::receiveData(){
 
       do{
@@ -115,11 +117,48 @@ void udpInterface::receiveData(){
             return;
         }
         msgbuf[nbytes] = '\0';
+
+        //printf("\nNBytes %d", nbytes);
         //puts(msgbuf);
         //rx_data.push_back(msgbuf);
         //*rx_data = msgbuf;
         //rx_data++;
-        printf("\nRX-DATA=:%s", msgbuf);
+
+        pb_byte_t buffer[512];
+
+        for (size_t i = 0; i < 512; i++) {
+          buffer[i] = msgbuf[i];
+        }
+        // = msgbuf;
+        size_t rcvd_msg_len = nbytes;
+
+        DarkRoomProtobuf_lighthouseMsg msg;
+
+        pb_istream_t stream = pb_istream_from_buffer(buffer, rcvd_msg_len);
+        bool status = pb_decode(&stream, DarkRoomProtobuf_lighthouseMsg_fields, &msg);
+
+
+        /*
+        printf("\n");
+        printf(" SensorID %d", msg.SensorID);
+        printf(" BeamWord %d", msg.BeamWord);
+        printf(" Timestamp %d", msg.Timestamp);
+        printf(" E_width %d", msg.E_width);
+        printf(" BaseStationID %d", msg.BaseStationID);
+        printf(" BaseStationChanel %d", msg.BaseStationChanel);*/
+
+        if(status){
+          printf("\n");
+          printf(" SensorID %d", msg.SensorID);
+          printf(" BeamWord %x", msg.BeamWord);
+          printf(" Timestamp %x", msg.Timestamp);
+          printf(" E_width %d", msg.E_width);
+          printf(" BaseStationID %d(%d)", msg.BaseStationID, msg.BaseStationChanel);
+        }else{
+            printf("FAild Encoding\n");
+        }
+
+        //printf("\nRX-DATA=:%s", msgbuf);
 
     }while(1);
 }

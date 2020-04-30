@@ -1,0 +1,16 @@
+#!/usr/bin/python
+import socket
+
+'''
+A IPv4 network has a broadcast adress that is network depending
+sock.bind(("", 8000)) ... with this comand u can listen to that address
+'''
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+msg = raw_input("Message: ")
+#sock.bind(("", 8000)) #set to "" for broadcast adress
+sock.bind(("",8000))
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+#sock.sendto(msg, ("", 8000)) 
+
+sock.sendto(msg, ("",8000)) #set to listening adress
+print "Reply:", sock.recvfrom(1024)[0]

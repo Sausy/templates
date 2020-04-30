@@ -11,4 +11,5 @@ class exClass
 
   private:
     ros::NodeHandlePtr  nh;
+    ros::Publisher pubHandl_Sensor;
 };

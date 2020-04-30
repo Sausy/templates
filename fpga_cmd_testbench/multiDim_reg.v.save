@@ -1,0 +1,18 @@
+module reg_test;
+
+  reg [7:0] array1 [2:0] = 0;
+  reg [7:0] array2 [2:0] = 0;
+  reg [7:0] array3 [2:0] = 0;
+  reg [7:0] array4 [2:0] = 0;
+
+  $display("data1");
+$display("data1");
+
+  
+  initial 
+    begin
+      $display("Hello, World");
+      $finish ;
+    end
+endmodule
+
