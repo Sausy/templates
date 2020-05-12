@@ -7,7 +7,7 @@
 
 int fd ;
 
-void ros_to_uart_bridge(const std_msgs::String::ConstPtr& msg);
+void sub_func(const std_msgs::String::ConstPtr& msg);
 
 int main (int argc, char **argv)
 {
@@ -21,15 +21,10 @@ int main (int argc, char **argv)
   ros::init(argc, argv, "test_wiringpi_ros");
   ros::NodeHandle nh;
   //wiringPiSetupGpio();
-  ros::Publisher chatter_pub = nh.advertise<std_msgs::String>("/roboy/hand/data", 1000);
-  ros::Subscriber sub = nh.subscribe("/roboy/hand/gesture", 1000, ros_to_uart_bridge);
+  ros::Publisher pub_inst = nh.advertise<std_msgs::String>("/test/topic1", 1000);
+  ros::Subscriber sub_inst = nh.subscribe("/test/topic1", 1000, sub_func);
 
   ros::Rate loop_rate(10);
-
-  //serialPuts(fd,"\nhello\n");
-  //serialPrintf(fd,ch);      // write uninitialized string to /dev/ttyAMA0
-  //printf ("%s", ch) ;
-
 
 
   while (ros::ok())
@@ -40,7 +35,7 @@ int main (int argc, char **argv)
     ss << "Hello world";
 
     msg.data = ss.str();
-    chatter_pub.publish(msg);
+    pub_inst.publish(msg);
 
     ros::spinOnce();
     loop_rate.sleep();

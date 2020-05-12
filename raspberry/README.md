@@ -18,6 +18,10 @@ sudo apt install build-essential git python python-pip python-dev wget curl
 Sudo apt install gnupg2 lsb-release python3-pip
 sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 ```
+short
+```
+sudo apt update && apt install -y build-essential git python python-pip python-dev wget curl gnupg2 lsb-release python3-pip python-rosdep python-rosinstall python-rosinstall-generator python-wstool
+```
 ```
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
@@ -125,6 +129,168 @@ SUBSYSTEM=="bcm2835-gpiomem", KERNEL=="gpiomem", OWNER="root", GROUP="gpio", MOD
 sudo chown root:root /etc/udev/rules.d/99-wiringpi.rules
 sudo chmod 0644 /etc/udev/rules.d/99-wiringpi.rules
 udevadm control --reload-rules
+```
+
+## Create Wifi-Hotspot
+
+
+sudo apt-get update
+sudo apt-get -y install hostapd iptables network-manage
+
+sudo systemctl start network-manager.servic
+sudo nmcli dev wifi hotspot ifname wlan0 ssid rpissid password "test1234"
+
+nmcli d
+
+sudo apt install -y isc-dhcp-server
+
+sudo echo "
+
+
+# dhcpd.conf
+#
+# Sample configuration file for ISC dhcpd
+#
+# Attention: If /etc/ltsp/dhcpd.conf exists, that will be used as
+# configuration file instead of this file.
+#
+
+# option definitions common to all supported networks...
+#option domain-name "example.org";
+#option domain-name-servers ns1.example.org, ns2.example.org;
+
+#default-lease-time 600;
+#max-lease-time 7200;
+
+# The ddns-updates-style parameter controls whether or not the server will
+# attempt to do a DNS update when a lease is confirmed. We default to the
+# behavior of the version 2 packages ('none', since DHCP v2 didn't
+# have support for DDNS.)
+#ddns-update-style none;
+#range 192.168.0.10 192.168.0.100;
+
+#authoritative;
+
+#interface wlan0;
+
+#Generelle Einstellungen
+
+# Rogue-DHCP-Server nicht erlauben (siehe oben)
+authoritative;
+
+
+
+# Definition des ersten (einzigen) Subnetzes
+subnet 192.168.0.0 netmask 255.255.255.0 {
+        range 192.168.0.10 192.168.0.50;
+        # Lease-Time (in Sekunden)
+        default-lease-time 600;
+        max-lease-time 7200;
+        option domain-name "ubuntuusers.home";
+        option domain-name-servers 192.168.0.1;
+        option broadcast-address 192.168.0.255;
+        option subnet-mask 255.255.255.0;
+        option routers 192.168.0.1;
+        interface wlan0;
+}" >>  /etc/dhcp/dhcpd.conf
+
+
+and define the interface in
+/etc/default/isc-dhcp-server
+
+!!!! natuerlich darf wlan0 interface nicht vergessen werden
+
+
+
+
+authoritative;
+default-lease-time 86400;
+max-lease-time 86400;
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.100 192.168.1.150;
+  option routers 192.168.1.1;
+  option domain-name-servers 192.168.1.1;
+  option domain-name "local";
+}
+
+/etc/init.d/isc-dhcp-server start
+
+/etc/init.d/isc-dhcp-server status
+
+
+to enable hotspot on boot set the flag autoconnect=false to true
+/etc/NetworkManager/system-connections/Hotspot
+
+to enable hotspot on boot set the flag autoconnect=false to true
+/etc/NetworkManager/system-connections/Hotspot
+
+
+since ubuntu 17 netplan should be used but it doesn't support wifi-AP
+therefor we use network-manager
+```
+sudo apt install -y network-manager ifupdown
+```
+```
+sudo apt install -y wireless-tools hostapd dnsmasq
+sudo systemctl stop hostapd
+sudo systemctl stop dnsmasq
+```
+Config static IP
+```
+sudo nano /etc/dhcpcd.conf
+```
+```
+interface wlan0
+static ip_address=192.168.1.1/24
+```
+
+sudo nano /etc/dnsmasq.conf
+
+```
+# DHCP-Server aktiv für WLAN-Interface
+interface=wlan0
+
+# DHCP-Server nicht aktiv für bestehendes Netzwerk
+no-dhcp-interface=eth0
+
+# IPv4-Adressbereich und Lease-Time
+dhcp-range=192.168.1.100,192.168.1.200,255.255.255.0,24h
+
+# DNS
+dhcp-option=option:dns-server,192.168.1.1
+```
+sudo nano /etc/hostapd/hostapd.conf
+```
+# WLAN-Router-Betrieb
+
+# Schnittstelle und Treiber
+interface=wlan0
+#driver=nl80211
+
+# WLAN-Konfiguration
+ssid=WLANrouter
+channel=1
+hw_mode=g
+ieee80211n=1
+ieee80211d=1
+country_code=DE
+wmm_enabled=1
+
+# WLAN-Verschlüsselung
+auth_algs=1
+wpa=2
+wpa_key_mgmt=WPA-PSK
+rsn_pairwise=CCMP
+wpa_passphrase=testtest
+```
+
+sudo chmod 600 /etc/hostapd/hostapd.conf
+
+
+to create the hotspot
+```
+sudo nmcli dev wifi hotspot ifname wlan0 ssid test password "test1234"
 ```
 
 
@@ -266,3 +432,527 @@ rosrun joy joy_node
 ssh-keygen -t rsa
 ssh b@B mkdir -p .ssh
 cat .ssh/id_rsa.pub | ssh b@B 'cat >> .ssh/authorized_keys'
+
+
+
+# CrossCompile HARDCORE
+## Normal ...
+For ARM 32bit toolchain
+
+$ sudo apt-get install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+
+For ARM 64bit toolchain
+
+$ sudo apt-get install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu pkg-config-aarch64-linux-gnu
+
+Step 4: Install package dependencies
+$ sudo apt-get install build-essential autoconf libtool cmake pkg-config git python-dev swig3.0 libpcre3-dev nodejs-dev
+
+sudo apt install lib32z1-dev
+
+
+
+```
+CMakeList.txt
+```
+```
+cmake_minimum_required(VERSION 2.8)
+project(HelloWorld)
+
+
+# this one is important
+SET(CMAKE_SYSTEM_NAME Linux)
+#this one not so much
+SET(CMAKE_SYSTEM_VERSION 1)
+
+# specify the cross compiler
+SET(CMAKE_C_COMPILER   /usr/bin/aarch64-linux-gnu-gcc)
+SET(CMAKE_CXX_COMPILER /usr/bin/aarch64-linux-gnu-g++)
+
+# where is the target environment
+SET(CMAKE_FIND_ROOT_PATH /usr/aarch64-linux-gnu)
+
+# search for programs in the build host directories
+SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+# for libraries and headers in the target directories
+SET(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+# end of the file
+
+
+add_executable(HelloWorld main.cpp )
+target_link_libraries(HelloWorld)
+```
+
+## Cleanest Solution using Docker
+
+Install docker on local and target machine
+https://docs.docker.com/engine/install/ubuntu/
+
+and install
+```
+sudo apt install debootstrap dirmngr
+```
+
+to use doker without sudo
+```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
+usefull cmd:
+sudo docker ps --all
+
+sudo docker container rm 42249c9927b5
+
+show all local images
+```
+sudo docker images --all
+```
+and do remove a container
+```
+sudo docker rmi 6cbc7081744b
+```
+
+### Use docker img different architectur
+Requirements:
+```
+sudo apt install qemu binfmt-support qemu-user-static
+```
+execute the registering scripts
+!!!!! this has to be executed when ever you restart you pc ... but i don't shut it down so its your problem
+```
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes --credential yes
+```
+
+test your docker imag
+
+```
+docker run --rm -t aarch64/ubuntu uname -m
+docker run -i -t aarch64/ubuntu /bin/bash
+```
+
+### Dockerfile
+simple build file called
+Dockerfile
+```
+FROM aarch64/ubuntu
+RUN apt update
+RUN apt upgrade -y
+CMD ["/bin/bash"]
+```
+
+example with EXPERIMENTAL features to allow plattform
+to enable EXPERIMENTAL features  (some with yamal possibel but didn't work for me )
+```
+sudo service docker stop
+sudo dockerd --experimental
+```
+to check if ok
+```
+
+```
+
+now basic Dockerfile for rpi arm 64 with user udev
+```
+FROM --platform=linux/arm64 ubuntu:18.04
+
+
+#====== basic setup =====
+#....this includes adding a user called "userdev:ubuntu" which is part of sudo
+RUN apt-get update && \
+    apt upgrade -y && \
+    apt-get install -y git nano curl sudo man wget && \
+    echo "root:ubuntu" | chpasswd && \
+    useradd -ms /bin/bash userdev && \
+    echo "userdev:ubuntu" | chpasswd && \
+    adduser userdev sudo && \
+    echo "userdev ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+    groupadd gpio && \
+    adduser userdev gpio
+
+#====== install dev package =====
+#    pip install --upgrade pip && \
+RUN apt install -y vim lsb-release build-essential autoconf libtool cmake pkg-config && \
+    apt install -y python3-dev python3 python3-pip && \
+    pip3 install --user --upgrade pip
+
+USER userdev
+WORKDIR /home/userdev
+
+CMD ["uname -a"]
+
+```
+```
+docker build -t customName:latest .
+docker run -i -t customName /bin/bash
+```
+
+#### Example for ROS2
+This example creates a user called userdev
+
+```
+FROM bionic/arm64
+
+###=====INFO === ##
+#   ... the ros2 link must be updated if changed ....
+###===================================================
+
+#USER userdev
+#WORKDIR /home/userdev
+
+#====== INSTALL wiringPi ====
+RUN pip3 install wiringpi && \
+    pip3 install -U pip setuptools && \
+    pip3 install libusb1 enum34 psutil
+
+#====== PRE INSTALL ROS 2 ====
+RUN export CHOOSE_ROS_DISTRO=eloquent && \
+    sudo apt update && \
+    sudo apt install -y wget curl gnupg2 lsb-release lsb-core && \
+    sudo locale-gen en_US en_US.UTF-8 && \
+    sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 && \
+    export LANG=en_US.UTF-8 && \
+    sudo apt update && sudo apt install curl gnupg2 lsb-release && \
+    curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add - && \
+    sudo sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list' && \
+    sudo apt update
+
+
+RUN sudo apt install ros-$CHOOSE_ROS_DISTRO-ros-base && \
+    echo "source /opt/ros/${CHOOSE_ROS_DISTRO}/setup.bash" >> ~/.bashrc
+
+
+CMD ["uname -a"]
+```
+
+BTW.: if docker builds more then one image use the
+```
+docker image prune
+```
+which deletes all dangling images
+
+
+
+
+#### From Source (didn't realy work for me, but could be that i never used it with docker run --rm --privileged multiarch/qemu-user-static --reset -p yes)
+
+install open source machine emulator and virtualizer Qemu
+via Github source code. (https://github.com/qemu/qemu.git)
+```
+git clone git://git.qemu.org/qemu.git
+cd qemu
+```
+under default-configs/ the config targets can be found (like arm-linux-user)
+```
+./configure --target-list=aarch64-linux-user --static
+make
+```
+
+Please make sure that the qemu-aarch64-static binary is under /usr/bin/ directory of your system
+(for different architecturs use the look Up on https://wiki.gentoo.org/wiki/Embedded_Handbook/General/Compiling_with_qemu_user_chroot)
+
+In my case
+```
+mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
+echo ':aarch64:M::\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\xb7:\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff:/usr/bin/qemu-aarch64:' > /proc/sys/fs/binfmt_misc/register
+```
+(ps can be also be take from "update-binfmts --display" but not sure how)
+
+
+
+2. Copy qemu-arm-static to Your Working Directory
+You need a copy of qemu-arm-static in your working directory for further modification.
+cp /usr/bin/qemu-arm-static /your/working/dir
+(or qemu-aarch64-static)
+3. Modify the Dockerfile
+Add this line of code, which makes a copy of qemu-arm-static binary to your docker image, below the "FROM" instruction in you Dockerfile.
+COPY qemu-arm-static /usr/bin/qemu-arm-static
+4. Build Docker Image with the Modified Dockerfile
+Now build your docker image with the modified Dockerfile.
+docker build -t your-image-name .
+
+
+
+### Get docker img online (easiest)
+online
+https://hub.docker.com/r/aarch64/ubuntu
+
+### Get docker img localy
+for that the easiest way to go is to get the parent imag from the target system
+
+
+Info: bionic can be changed to a different name "distro name"
+```
+sudo debootstrap bionic bionic > /dev/null
+sudo tar -cvzf bionic.tgz bionic/ > log.txt
+```
+I always had an issue with apt list
+to prevent this copy /etc/apt/sources.list from local pc into the bionic/etc/apt/sources.list file
+(PS.: only the essential links a needed for a clean setup)
+```
+sudo chown sausy:sausy bionic.tgz
+```
+copy .tar file to desired target and
+```
+sudo docker import bionic.tgz
+```
+to print out the lsb data of the container img
+```
+docker run bionic cat /etc/lsb-release
+```
+This should print out infos
+
+### Get docker img via .img file
+Install kpartx to creat a loopback device at a specific location
+```
+sudo apt install kpartx
+```
+First creat a project folder (dockerimgAarch64Rpi) with two sub folders
+```
+mkdir dockerimgAarch64Rpi
+mkdir dockerimgAarch64Rpi/rootfs
+mkdir dockerimgAarch64Rpi/unquashfs
+```
+mount the img to rootfs
+```
+sudo kpartx -av ubuntu-18.04.4-preinstalled-server-arm64+raspi3.img
+>>add map loop18p1 (253:0): 0 524288 linear 7:18 2048
+>>add map loop18p2 (253:1): 0 4599640 linear 7:18 526336
+```
+wich creates a loopback at
+/dev/mapper/loop18p1
+(some cases at /dev/loop...)
+```
+sudo mount -o loop /dev/mapper/loop18p1 dockerimgAarch64Rpi/rootfs
+```
+
+search
+```
+find dockerimgAarch64Rpi/. -type f | grep filesystem.squashfs
+```
+if there is no squashfs file then
+```
+sudo cp -r rootfs nameofnewimg
+#e.g. nameofnewimg=rpiaarch64
+sudo cp -r rootfs rpiaarch64
+```
+else
+```
+sudo unsquashfs -f -d unsquashfs/rootfs/<where u found it>
+sudo cp -r unsquashfs nameofnewimg
+
+#e.g. nameofnewimg=rpiaarch64
+sudo cp -r unsquashfs rpiaarch64
+```
+
+and finaly compress it
+```
+sudo tar -cvzf rpiaarch64.tgz nameofnewimg/ > log.txt
+```
+
+I always had an issue with apt list
+to prevent this copy /etc/apt/sources.list from local pc into the bionic/etc/apt/sources.list file
+(PS.: only the essential links a needed for a clean setup)
+```
+sudo chown sausy:sausy rpiaarch64.tgz
+```
+copy .tar file to desired target and
+```
+cat rpiaarch64.tgz | docker import - rpiaarch64:new
+```
+to print out the lsb data of the container img
+```
+docker run rpiaarch64 cat /etc/lsb-release
+```
+This should print out infos
+
+
+### Simple commands
+(ps.: apt prints error but works ... with apt-get it works without error)
+```
+docker run bionic apt-get update
+```
+### change to docker commandline
+```
+docker run -i -t bionic /bin/bash
+```
+
+now you should check if apt list is empty (or has only one entry) [mentioed bevor]
+```
+cat /etc/apt/sources.list
+```
+if yes just fucking copy your /etc/apt/sources.list from your original system
+
+Then run
+```
+apt update
+apt upgrade
+```
+If you are asked which encoding to use on the console
+take utf-8
+
+```
+apt install build-essential autoconf libtool cmake pkg-config git python3-dev nano vim curl
+```
+
+Test it
+
+mkdir -p /home/project/firsttest/
+cd /home/project/firsttest/
+nano main.c
+
+```
+#include<stdio.h>
+
+int main() {
+	printf("Hello World\n");
+	return 0;
+}
+```
+compile
+```
+gcc main.c -o test
+./test
+```
+
+### using dockerfile
+To build an image from a Dockerfile this recently created parent img can be used.
+create in your Projectfolder a file called
+"Dockerfile"
+```
+FROM bionic:latest
+WORKDIR /usr/src/app
+RUN apt-get install cowsay
+```
+
+### make img file available
+docker account needed
+docker login --username usern --password asdf123
+
+
+first find docker id
+```
+docker ps
+```
+and commit
+```
+docker commit c16378f943fe bionic
+docker tag bionic:latest ubuntu18_default:latest
+
+```
+
+
+## Download Crosstool-ng ..Harcore shit not funny
+https://github.com/crosstool-ng/crosstool-ng.git
+
+```
+sudo apt install bison cvs flex gperf texinfo automake libtool
+git clone https://github.com/crosstool-ng/crosstool-ng.git
+cd crosstool-ng
+mkdir -p ~/.local/share/crosstool-ng
+./bootstrap
+./configure --prefix=$HOME/.local/share/crosstool-ng
+```
+
+!!!!!! unset  LD_LIBRARY_PATH
+```
+unset LD_LIBRARY_PATH
+```
+
+```
+make
+make install
+export PATH=$PATH:$HOME/.local/share/crosstool-ng/bin/
+```
+
+### create toolchain for RaspberryPi
+```
+mkdir -p ~/Projects/crosscompile/RaspberryPi/staging
+cd ~/Projects/crosscompile/RaspberryPi/staging
+ct-ng  menuconfig
+```
+>>“Paths and misc options” >> Enable the option “Try features marked as EXPERIMENTAL”
+>>“Paths and misc options” >> *PATHS*  ... Prefix Directory (NEW) >> change to ${HOME}/.local/x-tools/${CT_TARGET}
+
+>> exit
+>> Target options >> Target Architectur >> Arm
+>> Target options >> Endianness: set to Little endian and
+>> Target options >> Bitness 64-bit
+
+to enable C++11
+>> Target options >> Architecture level >> armv6
+
+
+>> exit
+>> Operating System >> Target OS >> linux
+
+>> exit
+>> Binary utilities >> binutils version”>> most recent one
+
+>> exit
+>> C compiler >> enable C++
+
+>> exit
+>> C Libary >> set lib to
+
+>> exit
+
+```
+ct-ng build
+#if it fails ...
+unset LD_LIBRARY_PATH
+```
+And don't forget to tell you system where to find everything
+export PATH=$PATH:$HOME/.local/x-tools/arm-unknown-linux-gnueabi/bin
+
+### test with comandline compil e
+arm-unknown-linux-gnueabi-c++ HelloWorld.cpp -o hiho
+
+If an error like "-bash: ./hiho: No such file or directory"
+pops up when executing the programm on rpi
+
+```
+ldd hiho
+```
+might output
+not a dynamic executable
+
+
+### with CMake
+
+after sucessfull build create a file named
+Toolchain-RaspberryPi.cmake
+(This file can be put inside the project folder or somewhere else)
+
+```
+# this one is important
+SET(CMAKE_SYSTEM_NAME Linux)
+#this one not so much
+SET(CMAKE_SYSTEM_VERSION 1)
+
+SET(UNKNOWN_LINUX_NAME arm-unknown-linux-gnueabi)
+
+# specify the cross compiler
+SET(CMAKE_C_COMPILER
+$ENV{HOME}/.local/x-tools/${UNKNOWN_LINUX_NAME}/bin/${UNKNOWN_LINUX_NAME}-gcc)
+
+SET(CMAKE_CXX_COMPILER
+$ENV{HOME}/.local/x-tools/${UNKNOWN_LINUX_NAME}/bin/${UNKNOWN_LINUX_NAME}-g++)
+
+# where is the target environment
+SET(CMAKE_FIND_ROOT_PATH
+$ENV{HOME}/.local/x-tools/${UNKNOWN_LINUX_NAME})
+
+# search for programs in the build host directories
+SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+# for libraries and headers in the target directories
+SET(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+```
+
+```
+mdir build
+cd build
+cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain-RaspberryPi.cmake ../.
+```

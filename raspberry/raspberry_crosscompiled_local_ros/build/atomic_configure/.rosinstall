@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local_ros/devel/setup.sh

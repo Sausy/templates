@@ -1,0 +1,414 @@
+The target system is: Linux - 1 - 
+The host system is: Linux - 5.3.0-51-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/3.15.0-rc2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/3.15.0-rc2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f1d21/fast && /usr/bin/make -f CMakeFiles/cmTC_f1d21.dir/build.make CMakeFiles/cmTC_f1d21.dir/build
+make[1]: Entering directory '/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f1d21.dir/testCCompiler.c.o
+/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc    -o CMakeFiles/cmTC_f1d21.dir/testCCompiler.c.o   -c /home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_f1d21
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f1d21.dir/link.txt --verbose=1
+/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc      -rdynamic CMakeFiles/cmTC_f1d21.dir/testCCompiler.c.o  -o cmTC_f1d21 
+make[1]: Leaving directory '/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp'
+
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_67ea3/fast && /usr/bin/make -f CMakeFiles/cmTC_67ea3.dir/build.make CMakeFiles/cmTC_67ea3.dir/build
+make[1]: Entering directory '/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o
+/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc   -v -o CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.15/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc
+Target: arm-unknown-linux-gnueabi
+Configured with: /home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=arm-unknown-linux-gnueabi --prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi --with-sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-languages=c,c++ --with-arch=armv6 --with-pkgversion='crosstool-NG 1.24.0.105_5659366' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpfr=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpc=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-isl=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --enable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --disable-multilib --with-local-prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-long-long
+Thread model: posix
+gcc version 9.2.0 (crosstool-NG 1.24.0.105_5659366) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o' '-c'  '-mtls-dialect=gnu' '-marm' '-march=armv6'
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/cc1 -quiet -v /usr/local/share/cmake-3.15/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtls-dialect=gnu -marm -march=armv6 -auxbase-strip CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccRUZDkz.s
+GNU C17 (crosstool-NG 1.24.0.105_5659366) version 9.2.0 (arm-unknown-linux-gnueabi)
+	compiled by GNU C version 7.5.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include
+End of search list.
+GNU C17 (crosstool-NG 1.24.0.105_5659366) version 9.2.0 (arm-unknown-linux-gnueabi)
+	compiled by GNU C version 7.5.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 50150292957718713be951218e213c7a
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o' '-c'  '-mtls-dialect=gnu' '-marm' '-march=armv6'
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/as -v -march=armv6 -meabi=5 -o CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o /tmp/ccRUZDkz.s
+GNU assembler version 2.34 (arm-unknown-linux-gnueabi) using BFD version (crosstool-NG 1.24.0.105_5659366) 2.34
+COMPILER_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/
+LIBRARY_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o' '-c'  '-mtls-dialect=gnu' '-marm' '-march=armv6'
+Linking C executable cmTC_67ea3
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_67ea3.dir/link.txt --verbose=1
+/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc     -v -rdynamic CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o  -o cmTC_67ea3 
+Using built-in specs.
+COLLECT_GCC=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc
+COLLECT_LTO_WRAPPER=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/lto-wrapper
+Target: arm-unknown-linux-gnueabi
+Configured with: /home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=arm-unknown-linux-gnueabi --prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi --with-sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-languages=c,c++ --with-arch=armv6 --with-pkgversion='crosstool-NG 1.24.0.105_5659366' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpfr=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpc=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-isl=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --enable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --disable-multilib --with-local-prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-long-long
+Thread model: posix
+gcc version 9.2.0 (crosstool-NG 1.24.0.105_5659366) 
+COMPILER_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/
+LIBRARY_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_67ea3'  '-mtls-dialect=gnu' '-marm' '-march=armv6'
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/collect2 -plugin /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/liblto_plugin.so -plugin-opt=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cchyqFTC.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux.so.3 -X -m armelf_linux_eabi -o cmTC_67ea3 /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crt1.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crti.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtbegin.o -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0 -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtend.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_67ea3'  '-mtls-dialect=gnu' '-marm' '-march=armv6'
+make[1]: Leaving directory '/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include]
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed]
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include]
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include]
+  end of search list found
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include]
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed]
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/include]
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include]
+  implicit include dirs: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/include;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(arm-unknown-linux-gnueabi-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_67ea3/fast && /usr/bin/make -f CMakeFiles/cmTC_67ea3.dir/build.make CMakeFiles/cmTC_67ea3.dir/build]
+  ignore line: [make[1]: Entering directory '/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc   -v -o CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.15/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc]
+  ignore line: [Target: arm-unknown-linux-gnueabi]
+  ignore line: [Configured with: /home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=arm-unknown-linux-gnueabi --prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi --with-sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-languages=c,c++ --with-arch=armv6 --with-pkgversion='crosstool-NG 1.24.0.105_5659366' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpfr=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpc=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-isl=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --enable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --disable-multilib --with-local-prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-long-long]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.2.0 (crosstool-NG 1.24.0.105_5659366) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o' '-c'  '-mtls-dialect=gnu' '-marm' '-march=armv6']
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/cc1 -quiet -v /usr/local/share/cmake-3.15/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtls-dialect=gnu -marm -march=armv6 -auxbase-strip CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccRUZDkz.s]
+  ignore line: [GNU C17 (crosstool-NG 1.24.0.105_5659366) version 9.2.0 (arm-unknown-linux-gnueabi)]
+  ignore line: [	compiled by GNU C version 7.5.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (crosstool-NG 1.24.0.105_5659366) version 9.2.0 (arm-unknown-linux-gnueabi)]
+  ignore line: [	compiled by GNU C version 7.5.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 50150292957718713be951218e213c7a]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o' '-c'  '-mtls-dialect=gnu' '-marm' '-march=armv6']
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/as -v -march=armv6 -meabi=5 -o CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o /tmp/ccRUZDkz.s]
+  ignore line: [GNU assembler version 2.34 (arm-unknown-linux-gnueabi) using BFD version (crosstool-NG 1.24.0.105_5659366) 2.34]
+  ignore line: [COMPILER_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/]
+  ignore line: [LIBRARY_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o' '-c'  '-mtls-dialect=gnu' '-marm' '-march=armv6']
+  ignore line: [Linking C executable cmTC_67ea3]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_67ea3.dir/link.txt --verbose=1]
+  ignore line: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc     -v -rdynamic CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o  -o cmTC_67ea3 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/lto-wrapper]
+  ignore line: [Target: arm-unknown-linux-gnueabi]
+  ignore line: [Configured with: /home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=arm-unknown-linux-gnueabi --prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi --with-sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-languages=c,c++ --with-arch=armv6 --with-pkgversion='crosstool-NG 1.24.0.105_5659366' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpfr=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpc=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-isl=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --enable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --disable-multilib --with-local-prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-long-long]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.2.0 (crosstool-NG 1.24.0.105_5659366) ]
+  ignore line: [COMPILER_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/]
+  ignore line: [LIBRARY_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_67ea3'  '-mtls-dialect=gnu' '-marm' '-march=armv6']
+  link line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/collect2 -plugin /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/liblto_plugin.so -plugin-opt=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cchyqFTC.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux.so.3 -X -m armelf_linux_eabi -o cmTC_67ea3 /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crt1.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crti.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtbegin.o -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0 -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtend.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crtn.o]
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cchyqFTC.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_67ea3] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crt1.o] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crti.o] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtbegin.o] ==> ignore
+    arg [-L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0] ==> dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0]
+    arg [-L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib] ==> dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib]
+    arg [-L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib] ==> dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib]
+    arg [-L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib] ==> dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib]
+    arg [CMakeFiles/cmTC_67ea3.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtend.o] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0]
+  collapse library dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/lib]
+  collapse library dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib]
+  collapse library dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/lib;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_126db/fast && /usr/bin/make -f CMakeFiles/cmTC_126db.dir/build.make CMakeFiles/cmTC_126db.dir/build
+make[1]: Entering directory '/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_126db.dir/testCXXCompiler.cxx.o
+/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++     -o CMakeFiles/cmTC_126db.dir/testCXXCompiler.cxx.o -c /home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_126db
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_126db.dir/link.txt --verbose=1
+/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++       -rdynamic CMakeFiles/cmTC_126db.dir/testCXXCompiler.cxx.o  -o cmTC_126db 
+make[1]: Leaving directory '/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp'
+
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_eb04b/fast && /usr/bin/make -f CMakeFiles/cmTC_eb04b.dir/build.make CMakeFiles/cmTC_eb04b.dir/build
+make[1]: Entering directory '/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o
+/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++    -v -o CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++
+Target: arm-unknown-linux-gnueabi
+Configured with: /home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=arm-unknown-linux-gnueabi --prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi --with-sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-languages=c,c++ --with-arch=armv6 --with-pkgversion='crosstool-NG 1.24.0.105_5659366' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpfr=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpc=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-isl=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --enable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --disable-multilib --with-local-prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-long-long
+Thread model: posix
+gcc version 9.2.0 (crosstool-NG 1.24.0.105_5659366) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc'  '-mtls-dialect=gnu' '-marm' '-march=armv6'
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/cc1plus -quiet -v -D_GNU_SOURCE /usr/local/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtls-dialect=gnu -marm -march=armv6 -auxbase-strip CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccXvxM6R.s
+GNU C++14 (crosstool-NG 1.24.0.105_5659366) version 9.2.0 (arm-unknown-linux-gnueabi)
+	compiled by GNU C version 7.5.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0/arm-unknown-linux-gnueabi
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0/backward
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include
+End of search list.
+GNU C++14 (crosstool-NG 1.24.0.105_5659366) version 9.2.0 (arm-unknown-linux-gnueabi)
+	compiled by GNU C version 7.5.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: fd14024f0b08bd63db99840a48b8b1ba
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc'  '-mtls-dialect=gnu' '-marm' '-march=armv6'
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/as -v -march=armv6 -meabi=5 -o CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccXvxM6R.s
+GNU assembler version 2.34 (arm-unknown-linux-gnueabi) using BFD version (crosstool-NG 1.24.0.105_5659366) 2.34
+COMPILER_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/
+LIBRARY_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc'  '-mtls-dialect=gnu' '-marm' '-march=armv6'
+Linking CXX executable cmTC_eb04b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb04b.dir/link.txt --verbose=1
+/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++      -v -rdynamic CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_eb04b 
+Using built-in specs.
+COLLECT_GCC=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++
+COLLECT_LTO_WRAPPER=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/lto-wrapper
+Target: arm-unknown-linux-gnueabi
+Configured with: /home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=arm-unknown-linux-gnueabi --prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi --with-sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-languages=c,c++ --with-arch=armv6 --with-pkgversion='crosstool-NG 1.24.0.105_5659366' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpfr=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpc=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-isl=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --enable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --disable-multilib --with-local-prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-long-long
+Thread model: posix
+gcc version 9.2.0 (crosstool-NG 1.24.0.105_5659366) 
+COMPILER_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/
+LIBRARY_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_eb04b' '-shared-libgcc'  '-mtls-dialect=gnu' '-marm' '-march=armv6'
+ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/collect2 -plugin /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/liblto_plugin.so -plugin-opt=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVz4ATQ.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux.so.3 -X -m armelf_linux_eabi -o cmTC_eb04b /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crt1.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crti.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtbegin.o -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0 -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtend.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_eb04b' '-shared-libgcc'  '-mtls-dialect=gnu' '-marm' '-march=armv6'
+make[1]: Leaving directory '/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0]
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0/arm-unknown-linux-gnueabi]
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0/backward]
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include]
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed]
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include]
+    add: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include]
+  end of search list found
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/include/c++/9.2.0]
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0/arm-unknown-linux-gnueabi] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/include/c++/9.2.0/arm-unknown-linux-gnueabi]
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0/backward] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/include/c++/9.2.0/backward]
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include]
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed]
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/include]
+  collapse include dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include]
+  implicit include dirs: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/include/c++/9.2.0;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/include/c++/9.2.0/arm-unknown-linux-gnueabi;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/include/c++/9.2.0/backward;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/include;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(arm-unknown-linux-gnueabi-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_eb04b/fast && /usr/bin/make -f CMakeFiles/cmTC_eb04b.dir/build.make CMakeFiles/cmTC_eb04b.dir/build]
+  ignore line: [make[1]: Entering directory '/home/sausy/Projects/templates/raspberry/raspberry_crosscompiled_local/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++    -v -o CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++]
+  ignore line: [Target: arm-unknown-linux-gnueabi]
+  ignore line: [Configured with: /home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=arm-unknown-linux-gnueabi --prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi --with-sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-languages=c,c++ --with-arch=armv6 --with-pkgversion='crosstool-NG 1.24.0.105_5659366' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpfr=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpc=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-isl=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --enable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --disable-multilib --with-local-prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-long-long]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.2.0 (crosstool-NG 1.24.0.105_5659366) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc'  '-mtls-dialect=gnu' '-marm' '-march=armv6']
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/cc1plus -quiet -v -D_GNU_SOURCE /usr/local/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtls-dialect=gnu -marm -march=armv6 -auxbase-strip CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccXvxM6R.s]
+  ignore line: [GNU C++14 (crosstool-NG 1.24.0.105_5659366) version 9.2.0 (arm-unknown-linux-gnueabi)]
+  ignore line: [	compiled by GNU C version 7.5.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0/arm-unknown-linux-gnueabi]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include/c++/9.2.0/backward]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/include-fixed]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/include]
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++14 (crosstool-NG 1.24.0.105_5659366) version 9.2.0 (arm-unknown-linux-gnueabi)]
+  ignore line: [	compiled by GNU C version 7.5.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: fd14024f0b08bd63db99840a48b8b1ba]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc'  '-mtls-dialect=gnu' '-marm' '-march=armv6']
+  ignore line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/as -v -march=armv6 -meabi=5 -o CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccXvxM6R.s]
+  ignore line: [GNU assembler version 2.34 (arm-unknown-linux-gnueabi) using BFD version (crosstool-NG 1.24.0.105_5659366) 2.34]
+  ignore line: [COMPILER_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/]
+  ignore line: [LIBRARY_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc'  '-mtls-dialect=gnu' '-marm' '-march=armv6']
+  ignore line: [Linking CXX executable cmTC_eb04b]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb04b.dir/link.txt --verbose=1]
+  ignore line: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++      -v -rdynamic CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_eb04b ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/lto-wrapper]
+  ignore line: [Target: arm-unknown-linux-gnueabi]
+  ignore line: [Configured with: /home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=arm-unknown-linux-gnueabi --prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi --with-sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-languages=c,c++ --with-arch=armv6 --with-pkgversion='crosstool-NG 1.24.0.105_5659366' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpfr=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-mpc=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --with-isl=/home/sausy/Projects/crosscompile/RaspberryPi/staging/.build/arm-unknown-linux-gnueabi/buildtools --enable-lto --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --enable-threads=posix --enable-target-optspace --disable-plugin --disable-nls --disable-multilib --with-local-prefix=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --enable-long-long]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.2.0 (crosstool-NG 1.24.0.105_5659366) ]
+  ignore line: [COMPILER_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/bin/]
+  ignore line: [LIBRARY_PATH=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib/:/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_eb04b' '-shared-libgcc'  '-mtls-dialect=gnu' '-marm' '-march=armv6']
+  link line: [ /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/collect2 -plugin /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/liblto_plugin.so -plugin-opt=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVz4ATQ.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux.so.3 -X -m armelf_linux_eabi -o cmTC_eb04b /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crt1.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crti.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtbegin.o -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0 -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib -L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtend.o /home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crtn.o]
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/libexec/gcc/arm-unknown-linux-gnueabi/9.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccVz4ATQ.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_eb04b] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crt1.o] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crti.o] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtbegin.o] ==> ignore
+    arg [-L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0] ==> dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0]
+    arg [-L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib] ==> dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib]
+    arg [-L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib] ==> dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib]
+    arg [-L/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib] ==> dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib]
+    arg [CMakeFiles/cmTC_eb04b.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/crtend.o] ==> ignore
+    arg [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0]
+  collapse library dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0/../../../../arm-unknown-linux-gnueabi/lib] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/lib]
+  collapse library dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib]
+  collapse library dir [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib] ==> [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/lib/gcc/arm-unknown-linux-gnueabi/9.2.0;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/lib;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/lib;/home/sausy/.local/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib]
+  implicit fwks: []
+
+

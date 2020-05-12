@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(rpi_ros_uart)
+project(rpi_ros)
 
 SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g")
@@ -33,10 +33,10 @@ include_directories(
 FILE(GLOB SRC_FILES src/*.cpp)
 FILE(GLOB INCLUDE_FILES lib/*.hpp)
 
-add_executable( rpi_ros_uart
+add_executable( rpi_ros
         ${SRC_FILES}
         ${INCLUDE_FILES}
         )
 
-#add_dependencies(rpi_ros_uart triangulation_msg_gencpp)
-target_link_libraries( rpi_ros_uart -lwiringPi -lpthread -lrt -lm ${catkin_LIBRARIES})
+#add_dependencies(rpi_ros triangulation_msg_gencpp)
+target_link_libraries( rpi_ros -lwiringPi -lpthread -lrt -lm ${catkin_LIBRARIES})
