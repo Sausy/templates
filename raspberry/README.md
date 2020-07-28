@@ -20,32 +20,33 @@ sudo apt install python-rosdep python-rosinstall python-rosinstall-generator pyt
 ```
 short
 ```
-sudo apt update && apt install -y build-essential git python python-pip python-dev wget curl gnupg2 lsb-release python3-pip python-rosdep python-rosinstall python-rosinstall-generator python-wstool
+sudo apt update && sudo apt install -y build-essential git python python-pip python-dev wget curl gnupg2 lsb-release python3-pip python-rosdep python-rosinstall python-rosinstall-generator python-wstool
 ```
 ```
-sudo locale-gen en_US en_US.UTF-8
-sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+sudo locale-gen en_US en_US.UTF-8 && \
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 && \
 export LANG=en_US.UTF-8
 ```
 
 ```
-pip3 install --user --upgrade pip
-pip3 install wiringpi
-pip3 install -U pip setuptools  
+pip3 install --user --upgrade pip && \
+pip3 install wiringpi && \
+pip3 install -U pip setuptools  && \
 pip3 install libusb1 enum34 psutil
 ```
 
 ### Installing wiringpi
 ```
+cd && \
+mkdir -p libs && \
+cd libs && \
+git clone https://github.com/WiringPi/WiringPi.git && \
+cd WiringPi && \
+#git pull origin && \
+./build && \
 cd
-mkdir libs
-cd libs
-
-git clone https://github.com/WiringPi/WiringPi.git
-cd wiringPi
-git pull origin
-./build
 ```
+
 
 to figure out the gpios run
 ```
@@ -99,15 +100,15 @@ ll /dev/gpiomem
 
 belongs to root therefor:
 ```
-sudo groupadd gpio
-sudo chown root.gpio /dev/gpiomem
+sudo groupadd gpio && \
+sudo chown root.gpio /dev/gpiomem && \
 sudo chmod g+rw /dev/gpiomem
 ```
 
 Finaly add the current user (in my case pi)
 ```
-sudo adduser pi gpio
-sudo adduser pi kmem
+sudo adduser ${USER} gpio && \
+sudo adduser ${USER} kmem
 ```
 
 TIPP: if it still doesn't work just exit ssh and reconnect
@@ -126,26 +127,130 @@ SUBSYSTEM=="bcm2835-gpiomem", KERNEL=="gpiomem", OWNER="root", GROUP="gpio", MOD
 ```
 
 ```
-sudo chown root:root /etc/udev/rules.d/99-wiringpi.rules
-sudo chmod 0644 /etc/udev/rules.d/99-wiringpi.rules
-udevadm control --reload-rules
+sudo chown root:root /etc/udev/rules.d/99-wiringpi.rules && \
+sudo chmod 0644 /etc/udev/rules.d/99-wiringpi.rules && \
+sudo udevadm control --reload-rules
 ```
 
 ## Create Wifi-Hotspot
+###  Generall network setup
+
+#### Obsolete
+Disclaimer: Shouldn't be done this way anymore ... according to ubuntu wiki
+netplan is the way to go.
+```
+sudo nano /etc/network/interfaces
+```
+add
+```
+auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+
+auto lo wlan0
+iface lo inet loopback
+iface wlan0 inet static
+        address 192.168.1.1
+        netmask 255.255.255.0
+        gateway 192.168.1.1
+        broadcast 192.168.1.255
+```
+#### Netplan
+```
+sudo nano /etc/netplan/99-wifi.yaml
+```
+and add
+```
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    wlan0:
+      dhcp4: no
+      dhcp6: no
+      addresses: [192.168.1.1/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]
+
+```
+### hookup a DHCP
+```
+sudo apt-get install isc-dhcp-server
+```
+```
+sudo nano /etc/default/isc-dhcp-server
+```
+change
+INTERFACES="wlan0"
+
+```
+sudo mv /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf_alt
+sudo nano /etc/dhcp/dhcpd.conf
+```
 
 
-sudo apt-get update
-sudo apt-get -y install hostapd iptables network-manage
+```
+authoritative;
+default-lease-time 86400;
+max-lease-time 86400;
 
-sudo systemctl start network-manager.servic
-sudo nmcli dev wifi hotspot ifname wlan0 ssid rpissid password "test1234"
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.10 192.168.1.50;
+  option routers 192.168.1.1;
+  option domain-name-servers 192.168.1.1;
+  option domain-name "local";
+}
+```
+
+And finaly start the dhcp
+```
+sudo systemctl start isc-dhcp-server
+sudo systemctl status isc-dhcp-server
+
+sudo systemctl enable isc-dhcp-server
+
+```
+
+
+### AccessPoint setup
+```
+sudo apt install -y network-manager
+sudo systemctl start network-manager.service
+sudo systemctl status network-manager.service
+sudo systemctl enable network-manager.service
+```
+```
+sudo nmcli dev wifi hotspot ifname wlan0 ssid roboy password "wiihackroboy"
+```
+
+to enable hotspot on boot set the flag autoconnect=false to true
+```
+sudo nano /etc/NetworkManager/system-connections/Hotspot
+```
+under connection
+autoconnect=true
+```
+[connection]
+id=Hotspot
+uuid=e128a376-ebf8-4eb2-b060-d0843ed9de30
+type=wifi
+autoconnect=true
+permissions=
+```
+
+============================
+
+
+
+sudo apt-get update && \
+sudo apt-get -y install hostapd iptables network-manager isc-dhcp-server && \
+sudo systemctl start network-manager.service && \
+sudo nmcli dev wifi hotspot ifname wlan0 ssid roboy password "wiihackroboy"
 
 nmcli d
 
-sudo apt install -y isc-dhcp-server
-
 sudo echo "
-
 
 # dhcpd.conf
 #
@@ -181,60 +286,106 @@ authoritative;
 
 
 # Definition des ersten (einzigen) Subnetzes
-subnet 192.168.0.0 netmask 255.255.255.0 {
-        range 192.168.0.10 192.168.0.50;
+subnet 192.168.1.0 netmask 255.255.255.0 {
+        range 192.168.1.10 192.168.1.40;
         # Lease-Time (in Sekunden)
         default-lease-time 600;
         max-lease-time 7200;
         option domain-name "ubuntuusers.home";
-        option domain-name-servers 192.168.0.1;
-        option broadcast-address 192.168.0.255;
+        option domain-name-servers 192.168.1.1;
+        option broadcast-address 192.168.1.255;
         option subnet-mask 255.255.255.0;
-        option routers 192.168.0.1;
+        option routers 192.168.1.1;
         interface wlan0;
 }" >>  /etc/dhcp/dhcpd.conf
 
 
 and define the interface in
 /etc/default/isc-dhcp-server
+(add wlan0 to INTERFACESv4)
+
 
 !!!! natuerlich darf wlan0 interface nicht vergessen werden
 
+#authoritative;
+#default-lease-time 86400;
+#max-lease-time 86400;
 
+#subnet 192.168.1.0 netmask 255.255.255.0 {
+#  range 192.168.1.100 192.168.1.150;
+#  option routers 192.168.1.1;
+#  option domain-name-servers 192.168.1.1;
+#  option domain-name "local";
+#}
 
+```
+sudo /etc/init.d/isc-dhcp-server stop
+sudo /etc/init.d/isc-dhcp-server start
+sudo /etc/init.d/isc-dhcp-server status
+```
 
-authoritative;
-default-lease-time 86400;
-max-lease-time 86400;
-
-subnet 192.168.1.0 netmask 255.255.255.0 {
-  range 192.168.1.100 192.168.1.150;
-  option routers 192.168.1.1;
-  option domain-name-servers 192.168.1.1;
-  option domain-name "local";
-}
-
-/etc/init.d/isc-dhcp-server start
-
-/etc/init.d/isc-dhcp-server status
+if ok
+```
+sudo /etc/init.d/isc-dhcp-server enable
+```
 
 
 to enable hotspot on boot set the flag autoconnect=false to true
-/etc/NetworkManager/system-connections/Hotspot
+```
+sudo nano /etc/NetworkManager/system-connections/Hotspot
+```
+under connection
+autoconnect=true
+```
+[connection]
+id=Hotspot
+uuid=e128a376-ebf8-4eb2-b060-d0843ed9de30
+type=wifi
+autoconnect=true
+permissions=
+```
 
-to enable hotspot on boot set the flag autoconnect=false to true
-/etc/NetworkManager/system-connections/Hotspot
+
+## Config network interfaces
+
+### How i did it
+
+```
+sudo nano /etc/network/interfaces
+```
+add
+```
+auto lo wlan0
+iface lo inet loopback
+iface wlan0 inet static
+        address 192.168.1.1
+        netmask 255.255.255.0
+        gateway 192.168.1.1
+
+auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+
+```
+
 
 
 since ubuntu 17 netplan should be used but it doesn't support wifi-AP
 therefor we use network-manager
 ```
-sudo apt install -y network-manager ifupdown
+sudo apt install -y network-manager ifupdown \
+wireless-tools hostapd dnsmasq netplan
 ```
+sudo nano /etc/dhcpcd.conf
 ```
-sudo apt install -y wireless-tools hostapd dnsmasq
+interface wlan0
+static ip_address=192.168.1.1/24
+```
+
+```
 sudo systemctl stop hostapd
 sudo systemctl stop dnsmasq
+sudo systemctl restart dhcpcd
 ```
 Config static IP
 ```
@@ -256,6 +407,44 @@ no-dhcp-interface=eth0
 
 # IPv4-Adressbereich und Lease-Time
 dhcp-range=192.168.1.100,192.168.1.200,255.255.255.0,24h
+
+# DNS
+dhcp-option=option:dns-server,192.168.1.1
+```
+
+
+### somhow it should be done
+
+since ubuntu 17 netplan should be used but it doesn't support wifi-AP
+therefor we use network-manager
+```
+sudo apt install -y network-manager ifupdown \
+wireless-tools hostapd dnsmasq
+```
+```
+sudo systemctl stop hostapd && \
+sudo systemctl stop dnsmasq
+```
+Config static IP
+```
+sudo nano /etc/dhcpcd.conf
+```
+```
+interface wlan0
+static ip_address=192.168.1.1/24
+```
+
+sudo nano /etc/dnsmasq.conf
+
+```
+# DHCP-Server aktiv für WLAN-Interface
+interface=wlan0
+
+# DHCP-Server nicht aktiv für bestehendes Netzwerk
+no-dhcp-interface=eth0
+
+# IPv4-Adressbereich und Lease-Time
+dhcp-range=192.168.1.10,192.168.1.50,255.255.255.0,24h
 
 # DNS
 dhcp-option=option:dns-server,192.168.1.1
@@ -292,6 +481,18 @@ to create the hotspot
 ```
 sudo nmcli dev wifi hotspot ifname wlan0 ssid test password "test1234"
 ```
+
+
+### trying to fix the shit abov
+
+sudo apt-get install -y dhcpcd5 dnsmasq hostapd
+
+sudo nano /etc/dhcpcd.conf
+
+>>interface wlan0
+>>static ip_address=192.168.1.1/24
+
+sudo systemctl restart dhcpcd
 
 
 ## ROS 1
