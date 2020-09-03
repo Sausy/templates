@@ -133,7 +133,7 @@ udevadm control --reload-rules
 
 ## Create Wifi-Hotspot
 
-
+```
 sudo apt-get update
 sudo apt-get -y install hostapd iptables network-manage
 
@@ -143,10 +143,12 @@ sudo nmcli dev wifi hotspot ifname wlan0 ssid rpissid password "test1234"
 nmcli d
 
 sudo apt install -y isc-dhcp-server
+```
 
+```
 sudo echo "
-
-
+```
+```
 # dhcpd.conf
 #
 # Sample configuration file for ISC dhcpd
@@ -192,11 +194,17 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
         option subnet-mask 255.255.255.0;
         option routers 192.168.0.1;
         interface wlan0;
-}" >>  /etc/dhcp/dhcpd.conf
+}
+```
+```
+" >>  /etc/dhcp/dhcpd.conf
+```
 
 
 and define the interface in
+```
 /etc/default/isc-dhcp-server
+```
 
 !!!! natuerlich darf wlan0 interface nicht vergessen werden
 
