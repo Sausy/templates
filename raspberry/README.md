@@ -133,174 +133,71 @@ udevadm control --reload-rules
 
 ## Create Wifi-Hotspot
 
+Config a static ip for the interface that will run a dhcp.
 ```
-sudo apt-get update
-sudo apt-get -y install hostapd iptables network-manage
+sudo apt install -y network-manager
+sudo systemctl start network-manager.service
+sudo systemctl enable network-manager.service
+```
 
-sudo systemctl start network-manager.servic
+### Create AP 
+Create a Config File with **nmcli**
+```
 sudo nmcli dev wifi hotspot ifname wlan0 ssid rpissid password "test1234"
+```
+This file can be found in **/etc/NetworkManager/system-connections/Hotspot**
 
-nmcli d
+Edit this file in **[connection]**
+```
+autoconnect=true
+```
 
+**Set Interface Static IP**
+And to set a a static IP, edit **[ipv4]**
+
+```
+address1=192.168.1.1/24,192.168.1.1
+```
+
+**Verify Static IP **
+```
+sudo systemctl restart network-manager.service
+```
+and Display all interfaces
+```
+ip addr | grep wlan0
+```
+
+### Adding a dhcp server
+First of all install a dhcp server (e.g.: isc-dhcp)
+```
 sudo apt install -y isc-dhcp-server
 ```
-
+To only run it on **wlan0 Interface**, edit the file **/etc/default/isc-dhcp-server**
 ```
-sudo echo "
-```
-```
-# dhcpd.conf
-#
-# Sample configuration file for ISC dhcpd
-#
-# Attention: If /etc/ltsp/dhcpd.conf exists, that will be used as
-# configuration file instead of this file.
-#
-
-# option definitions common to all supported networks...
-#option domain-name "example.org";
-#option domain-name-servers ns1.example.org, ns2.example.org;
-
-#default-lease-time 600;
-#max-lease-time 7200;
-
-# The ddns-updates-style parameter controls whether or not the server will
-# attempt to do a DNS update when a lease is confirmed. We default to the
-# behavior of the version 2 packages ('none', since DHCP v2 didn't
-# have support for DDNS.)
-#ddns-update-style none;
-#range 192.168.0.10 192.168.0.100;
-
-#authoritative;
-
-#interface wlan0;
-
-#Generelle Einstellungen
-
-# Rogue-DHCP-Server nicht erlauben (siehe oben)
-authoritative;
-
-
-
-# Definition des ersten (einzigen) Subnetzes
-subnet 192.168.0.0 netmask 255.255.255.0 {
-        range 192.168.0.10 192.168.0.50;
-        # Lease-Time (in Sekunden)
-        default-lease-time 600;
-        max-lease-time 7200;
-        option domain-name "ubuntuusers.home";
-        option domain-name-servers 192.168.0.1;
-        option broadcast-address 192.168.0.255;
-        option subnet-mask 255.255.255.0;
-        option routers 192.168.0.1;
-        interface wlan0;
-}
-```
-```
-" >>  /etc/dhcp/dhcpd.conf
+INTERFACES="wlan0"
 ```
 
+Die Konfiguration des DHCP-Servers geschieht in der Datei **/etc/dhcp/dhcpd.conf**
 
-and define the interface in
+Just add the following at the end
+
 ```
-/etc/default/isc-dhcp-server
-```
-
-!!!! natuerlich darf wlan0 interface nicht vergessen werden
-
-
-
-
-authoritative;
-default-lease-time 86400;
-max-lease-time 86400;
-
 subnet 192.168.1.0 netmask 255.255.255.0 {
-  range 192.168.1.100 192.168.1.150;
-  option routers 192.168.1.1;
+  range 192.168.1.10 192.168.1.100;
   option domain-name-servers 192.168.1.1;
   option domain-name "local";
+  option broadcast-address 192.168.1.255;
+  option subnet-mask 255.255.255.0;
+  option routers 192.168.1.1;
+  interface wlan0;
 }
+```
+
+
 
 /etc/init.d/isc-dhcp-server start
-
 /etc/init.d/isc-dhcp-server status
-
-
-to enable hotspot on boot set the flag autoconnect=false to true
-/etc/NetworkManager/system-connections/Hotspot
-
-to enable hotspot on boot set the flag autoconnect=false to true
-/etc/NetworkManager/system-connections/Hotspot
-
-
-since ubuntu 17 netplan should be used but it doesn't support wifi-AP
-therefor we use network-manager
-```
-sudo apt install -y network-manager ifupdown
-```
-```
-sudo apt install -y wireless-tools hostapd dnsmasq
-sudo systemctl stop hostapd
-sudo systemctl stop dnsmasq
-```
-Config static IP
-```
-sudo nano /etc/dhcpcd.conf
-```
-```
-interface wlan0
-static ip_address=192.168.1.1/24
-```
-
-sudo nano /etc/dnsmasq.conf
-
-```
-# DHCP-Server aktiv für WLAN-Interface
-interface=wlan0
-
-# DHCP-Server nicht aktiv für bestehendes Netzwerk
-no-dhcp-interface=eth0
-
-# IPv4-Adressbereich und Lease-Time
-dhcp-range=192.168.1.100,192.168.1.200,255.255.255.0,24h
-
-# DNS
-dhcp-option=option:dns-server,192.168.1.1
-```
-sudo nano /etc/hostapd/hostapd.conf
-```
-# WLAN-Router-Betrieb
-
-# Schnittstelle und Treiber
-interface=wlan0
-#driver=nl80211
-
-# WLAN-Konfiguration
-ssid=WLANrouter
-channel=1
-hw_mode=g
-ieee80211n=1
-ieee80211d=1
-country_code=DE
-wmm_enabled=1
-
-# WLAN-Verschlüsselung
-auth_algs=1
-wpa=2
-wpa_key_mgmt=WPA-PSK
-rsn_pairwise=CCMP
-wpa_passphrase=testtest
-```
-
-sudo chmod 600 /etc/hostapd/hostapd.conf
-
-
-to create the hotspot
-```
-sudo nmcli dev wifi hotspot ifname wlan0 ssid test password "test1234"
-```
-
 
 ## ROS 1
 
