@@ -1,0 +1,95 @@
+#raw URB data 
+(ps.: URB means USB Request Block)
+
+read tool.txt to hook it up 
+
+to show present bus sockets
+sudo ls -l /sys/kernel/debug/usb/usbmon
+
+now get the busNumber via lsusb
+eg.: 
+Bus 001 Device 035: ID 28de:2101 
+where:
+VendorID = 28de
+ManufID = 2101
+
+now we can dump data via 
+
+sudo cat /sys/kernel/debug/usb/usbmon/1t
+
+
+#read it via network monitoring tool
+## wireshark
+just run wireshark as sudo 
+
+## filter
+wenn you run 
+```
+lsusb
+```
+with an output like 
+```
+Bus 001 Device 045: ID 28de:2101  
+```
+wiresharek will say that the ip will be 
+```
+1.45.0
+```
+
+to filter it 
+
+```
+usb.device_address==45
+```
+
+## example wireshark 
+!!! if 4Byte the first two are The LSB
+
+eg
+```
+0000   80 14 93 d7 dc 92 ff ff  53 02 80 38 01 00 00 3c   ...×Ü.ÿÿS..8...<
+0010   b1 dc 7d 5f 00 00 00 00  dd a4 04 00 8d ff ff ff   ±Ü}_....Ý¤...ÿÿÿ
+0020   12 00 00 00 00 00 00 00  80 06 00 01 00 00 12 00   ................
+0030   00 00 00 00 00 00 00 00  00 02 00 00 00 00 00 00   ................
+```
+so the default URB setup is 
+80 06 00 01 00 00 12 00
+where
+```
+bmRequestType 0x08
+bRequest = 0x06                 
+wValue = 0x00 01          
+wIndex = 0x00 00           
+wLength = 18 
+Data
+```
+
+which translates to usb.core
+
+```
+device.ctrl_transfer(0x08, 0x06, 0x0100, 0, (0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00))
+```
+or short because data=0
+```
+device.ctrl_transfer(0x08, 0x06, 0x0100, 0, 0)
+```
+
+0000   80 6a 85 65 dd 92 ff ff 53 02 00 3f 01 00 00 00
+0010   4f f9 7d 5f 00 00 00 00 e3 ef 07 00 8d ff ff ff
+0020   40 00 00 00 40 00 00 00 21 09 ff 03 00 00 40 00
+0030   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0040   ff a1 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0050   00 10 ba b0 14 b6 7f 00 00 56 40 2c 1a b6 7f 00
+0060   00 04 00 00 00 01 00 00 00 c8 ba b0 14 b6 7f 00
+0070   00 20 ba b0 14 b6 7f 00 00 56 7b 42 00 00 00 00
+
+data_raw = "ff a1 00 00 00 00 00 00 00 00 00 00 00 00 00 00".split()
+data_raw = data_raw + "00 10 ba b0 14 b6 7f 00 00 56 40 2c 1a b6 7f 00".split()
+data_raw = data_raw + "00 04 00 00 00 01 00 00 00 c8 ba b0 14 b6 7f 00".split()
+data_raw = data_raw + "00 20 ba b0 14 b6 7f 00 00 56 7b 42 00 00 00 00".split()
+
+data_out = tuple()
+for i in data_raw:
+	data_out = data_out + (int(i,16),)
+
+device.ctrl_transfer(0x21, 0x09, 0x03ff, 0, data_out)
