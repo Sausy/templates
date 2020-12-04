@@ -1,0 +1,17 @@
+assuming i want to compile something with libusb 
+so after installing it via sudo or even building it from source it should be found in 
+
+ll /usr/include/ | grep usb
+drwxr-xr-x   2 root root 4,0K Mär 19  2019 libusb-1.0/
+-rw-r--r--   1 root root 8,4K Apr 19  2017 usb.h
+
+now it got a subfolder
+
+ll /usr/include/libusb-1.0/
+-rw-r--r--   1 root root  70K Jun 24  2017 libusb.h
+
+hence 
+
+#include <libusb-1.0/libusb.h>
+
+and add "-llibusb-1.0" to your cmake or make file

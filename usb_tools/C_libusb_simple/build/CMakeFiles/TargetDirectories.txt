@@ -1,0 +1,3 @@
+/home/sausy/Projects/lighthouse/sandbox/libusbTest/build/CMakeFiles/rebuild_cache.dir
+/home/sausy/Projects/lighthouse/sandbox/libusbTest/build/CMakeFiles/default_programm.dir
+/home/sausy/Projects/lighthouse/sandbox/libusbTest/build/CMakeFiles/edit_cache.dir

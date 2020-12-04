@@ -2,6 +2,23 @@ import usb.core
 import usb.util
 import usb.backend.libusb1
 import time
+import numpy as np
+import sys
+import copy
+
+frame01 = [[]]
+frame02 = [[]]
+frameDef= [[]]
+
+#FRAME_ID_IMU = 0x23
+#FRAME_ID_LIGHT = 0x24
+
+VIVE_REPORT_INFO = 1
+VIVE_REPORT_IMU = 0x20
+VIVE_REPORT_USB_TRACKER_LIGHTCAP_V1 = 0x21
+VIVE_REPORT_RF_WATCHMAN = 0x23
+VIVE_REPORT_RF_WATCHMANx2 = 0x24
+VIVE_REPORT_USB_LIGHTCAP_REPORT_V1 = 0x25
 
 def tool_rawToTuple(raw):
     data_out = tuple()
@@ -28,7 +45,16 @@ def initInterrup(endpoint):
     #ret_ = endpoint.read('')
     #print(ret_)
 
+
+def pars_light_frame(frame):
+    print("fuck off")
+
+stopPos = -1
 def writeCmd(dev):
+    frame01 = [[]]
+    frame02 = [[]]
+    stopPos = -1
+
     data_raw  = "ff 96 10 be 5b 32 54 11 cf 83 75 53 8a 08 6a 53".split()
     data_raw = data_raw + "58 d0 b1 00 00 00 00 00 00 00 00 00 00 00 00 00".split()
     data_raw = data_raw + "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00".split()
@@ -50,7 +76,7 @@ def writeCmd(dev):
 
     max_counter = 200
     cnt = 0
-    for cnt in range(5):
+    for cnt in range(20):
         #time.sleep(0.03)
         try:
             ret_ = device.ctrl_transfer(0xa1, 0x01, 0x0305, 0, 0x41)
@@ -62,12 +88,106 @@ def writeCmd(dev):
 #        if cnt >= max_counter :
  #           print("TOTAL ERROR")
         
-        for cnt2 in range(33):
+#        rawOut = 
+        for cnt2 in range(75):
+            rawOut = ""
             try:
                 ret_ = device.read(0x81, 59)
-                print(ret_)
+                rawDump = str(ret_)
+                rawDump = rawDump.replace("array", "")
+                rawDump = rawDump.replace("]","")
+                rawDump = rawDump.replace("[","")
+                rawDump = rawDump.replace("(","")
+                rawDump = rawDump.replace(")","")
+                rawDump = rawDump.replace("'","")
+                rawDump = rawDump.replace(" ","")
+                
+                #rawOut = int(rawDump.split(','),16)
+                rawOut = rawDump.split(',')
+                rawOut = rawOut[1:]
+                #frame01 = np.append(frame01,[rawOut],axis=0)
+
+                #Only print out Lighthouse Data for debug reasons
+                #if rawOut[0] == FRAME_ID_LIGHT:
+                #    print(rawOut)
+                #print(rawOut)
+
             except:
                 print("nope")
+            
+            try:
+                #foo_ = int(rawOut[0],10)
+                #print(VIVE_REPORT_RF_WATCHMANx2)
+                if int(rawOut[0],10) == VIVE_REPORT_RF_WATCHMANx2:
+                    #print("len raw {}".format(len(rawOut)))
+                    #print("len frame01 {}".format(len(frame01)))
+                    if np.size(frame01) <= 5:
+                        frame01 = [rawOut[1:30]]
+                        frame01 = np.append(frame01,[rawOut[30:]], axis=0)
+                        #print("len frame01 {}".format(np.size(frame01)))
+
+                        #print(rawOut[3] & 0xe0)
+                    else:
+                        frame01 = np.append(frame01,[rawOut[1:30]], axis=0)
+                        frame01 = np.append(frame01,[rawOut[30:]], axis=0)
+                        print(rawOut)
+                        foo = int(rawOut[4],10) 
+                        print(foo & 0xe0)
+                        foo = int(rawOut[33],10)
+                        print(foo & 0xe0)
+                        
+                        stopPos = -1
+                        for cnt_ in range(4,29):
+                            sRaw = int(rawOut[cnt_],10)
+                            #sID = sRaw>>3
+                            if sRaw >= 0xc0:
+                                print("End of Sensor Data")
+                                break
+                            else:
+                                sID = sRaw >> 3
+                                edgeCnt = sRaw & 0x03
+                                print("sID {} | edgeCnt {}".format(sID, edgeCnt))
+                                stopPos = copy.deepcopy(cnt_)
+
+                        #print("other stuff {}".format(stopPos))
+
+                        if stopPos != -1:
+                            #print(int(rawOut[stopPos:55],10))
+                            #print(rawOut)
+                            print(stopPos)
+                            print(rawOut[stopPos])
+
+                        
+                        lastTime = int(rawOut[27],10) << 16
+                        lastTime = lastTime + ( int(rawOut[28],10) << 8 )
+                        lastTime = lastTime + int(rawOut[29],10)
+                        print("timestamp of last Event {}".format(lastTime))
+
+                        lastTime = int(rawOut[58],10) << 16
+                        lastTime = lastTime + ( int(rawOut[57],10) << 8 ) 
+                        lastTime = lastTime + int(rawOut[56],10)
+                        print("timestamp of last Event {}".format(lastTime))
+                        print("\n")
+
+                        
+
+                else:
+                    #frame02 = [[]]
+                    if np.size(frame02) <= 5:
+                        frame02 = [rawOut[1:]]
+                    else:
+                        frame02 = np.append(frame02,[rawOut[1:]], axis=0)
+
+            except:
+                print("error: ", sys.exc_info()[0])   
+    print("alle the VIVE_REPORT_RF_WATCHMANx2 events")
+    print(frame01)
+    print(np.size(frame01))
+   # print("print flags {}".format())
+
+    print("other events like IMU")
+    print(frame02)
+    print(np.size(frame02))
 
 
     #ret_ = dev.ctrl_transfer(0x21, 0x09, 0x03ff, 0, data_out)
@@ -144,7 +264,7 @@ def initalStuff(dev):
     '''
     
     #cnt = 0
-    for cnt in range(40):
+    for cnt in range(30):
         try:
             ret_ = device.ctrl_transfer(0xa1, 0x01, 0x0305, 0, data_out)
             print(ret_)
@@ -176,6 +296,11 @@ def keepAlive(dev):
 VENDOR_ID = 0x28DE
 PRODUCT_ID = 0x2101
 iManufacturer = 'Valve Software'
+frame01 = [[]]
+
+
+#print(len(frame01))
+print("len frame01 {}".format(np.size(frame01)))
 
 interfaceSelect = 0
 
@@ -212,9 +337,9 @@ initInterrup(ep_in)
 writeCmd(device)
 #initalStuff(device)
 
-time.sleep(10)
+#time.sleep(10)
 print("done")
-time.sleep(6)
+time.sleep(1)
 
 
 usb.util.release_interface(device, interfaceSelect)

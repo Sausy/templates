@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC -std=gnu99 -rdynamic -Werror=incompatible-pointer-types -Wall -Wno-unused-variable -Wno-switch -Wno-parentheses -Wno-missing-braces -Werror=implicit-function-declaration -Wpedantic -Werror=return-type -fvisibility=hidden -Werror=vla -g   CMakeFiles/default_programm.dir/src/main.c.o  -o default_programm -lusb-1.0 
